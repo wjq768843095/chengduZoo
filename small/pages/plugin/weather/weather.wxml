@@ -1,0 +1,66 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="backText">景区天气</view>
+</cu-custom>
+<view class="content">
+    <scroll-view enableBackToTop="true" scrollTop="{{topNum}}" scrollY="true" style="height:{{scroll_height}}rpx">
+        <image class="background" mode="aspectFill" src="../../../images/background2.jpg"></image>
+        <view style="text-align:center;padding-top:45%" wx:if="{{weatherVisual==true}}">
+      ——您的手机版本无法查看天气!——
+    </view>
+        <view wx:if="{{weatherVisual==false}}">
+            <view class="info">
+                <view class="city textShadow">
+                    <view class="weekday">{{weekday}}</view>
+                    <view class="cityName">{{currentWeather.currentCity}}</view>
+                    <view class="currentDate">{{currentDate}}</view>
+                </view>
+                <view class="temp">
+                    <view class="currentTemp textShadow">{{currentWeather.date}}</view>
+                    <view class="temp_right textShadow">
+                        <view class="celsius">℃</view>
+                        <view class="realtime">(实时)</view>
+                    </view>
+                </view>
+                <image class="weatherIcon" mode="Widthfix" src="{{iconURL}}"></image>
+                <view class="type textShadow">{{currentWeather.weatherDesc}}</view>
+                <view class="tempRange textShadow">{{currentWeather.temperature}}</view>
+                <view class="wind textShadow">{{currentWeather.wind}}</view>
+                <view class="air" style="background:{{airColor}}; border:{{airColor}}">{{currentWeather.pm25}}  {{airClass}}</view>
+            </view>
+            <view class="forecast">
+                <view class="next-day textShadow" wx:for="{{forecast}}" wx:key="{{index}}">
+                    <view class="detail date">{{item.date}}</view>
+                    <image class="forecastIcon" mode="Widthfix" src="{{item.iconURL}}"></image>
+                    <view class="detail">{{item.weather}}</view>
+                    <view class="detail">{{item.temperature}}</view>
+                    <view class="detail">{{item.windDeriction}}</view>
+                    <view class="detail">{{item.windSpeed}}</view>
+                </view>
+            </view>
+            <view class="tips textShadow">
+                <view class="index">感冒指数：{{ganmao.zs}}</view>
+                <view>
+                    <view class="description">{{ganmao.des}}</view>
+                </view>
+            </view>
+            <view class="tips textShadow">
+                <view class="index">运动指数：{{yundong.zs}}</view>
+                <view>
+                    <view class="description">{{yundong.des}}</view>
+                </view>
+            </view>
+            <view class="tips textShadow">
+                <view class="index">紫外线指数：{{ziwaixian.zs}}</view>
+                <view>
+                    <view class="description">{{ziwaixian.des}}</view>
+                </view>
+            </view>
+            <view class="tips textShadow">
+                <view class="index">洗车指数：{{xiche.zs}}</view>
+                <view>
+                    <view class="description">{{xiche.des}}</view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

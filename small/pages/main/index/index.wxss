@@ -1,0 +1,125 @@
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.notice-picture {
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.datachoise {
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.cb {
+    transform: scale(.6,.6);
+}
+
+.languageSwitching {
+    width: 190rpx;
+    height: 70rpx;
+    background-color: #ffa85b;
+    position: fixed;
+    top: 900rpx;
+    left: 0;
+    font-size: 28rpx;
+    font-weight: 400;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    box-shadow: 0rpx 8rpx 18rpx 2rpx rgba(236,141,50,.2);
+    border-radius: 0rpx 35rpx 35rpx 0rpx;
+    z-index: 100;
+}
+
+.languageSwitching .marginR16 {
+    margin-right: 16rpx;
+}
+
+.languageSwitching .text {
+    color: #fff;
+    opacity: .5;
+}
+
+.languageSwitching .text.active {
+    color: #fff;
+    opacity: 1;
+}
+
+.text-ellipsis-1 {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.codeProp {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    z-index: 1000;
+}
+
+.codeBox {
+    position: absolute;
+    left: 110rpx;
+    top: 300rpx;
+    z-index: 1001;
+}
+
+.codeBox,.codeBox .abimg {
+    width: 530rpx;
+    height: 680rpx;
+}
+
+.code_tt {
+    position: absolute;
+    width: 94%;
+    top: 300rpx;
+    left: 3%;
+    text-align: center;
+}
+
+.code_tt .name {
+    font-size: 44rpx;
+    font-weight: 700;
+}
+
+.code_tt .time {
+    background-color: grey;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.c_tiem {
+    color: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx;
+}
+
+.code_btn {
+    width: 70%;
+    margin-left: 15%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    text-align: center;
+    color: #fff;
+    margin-top: 30rpx;
+}

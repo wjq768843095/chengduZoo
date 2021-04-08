@@ -1,0 +1,184 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="backText">{{languageType==''?'用户隐私协议':'User privacy protocol'}}</view>
+</cu-custom>
+<scroll-view scrollY class="scrollPage" style="">
+    <view class="clearfix" style="width:100%;background-color:#ec8d33;padding:10px">
+        <view class="clearfix" style="width:100%;height:100%;background-color:#ffffff;border:6px solid #bd7028">
+            <view style="height:80px;padding:20px 0;width:100%">
+                <image src="/images/agreementPic.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:if="{{languageType==''}}"></image>
+                <image src="/images/agreementPicEnglish.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:else></image>
+            </view>
+            <view style="padding:0 10px 20px 10px">
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                          {{languageType==''?'提示条款':'Prompt Terms'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view style="margin-top:40rpx">
+                        <view style="text-align: justify" wx:if="{{languageType==''}}"> 
+                      您的信任对我们非常重要，我们深知个人信息对您的重要性，我们将按照《中华人民共和国
+                      网络安全法》、《信息安全技术个人信息安全规范》、《电信和互联网用户个人信息保护规
+                      定》、《全国人大常委会关于加强网络信息保护的决定》等相关法律法规要求，采取相应安
+                      全保护措施，尽力保护您的个人信息安全可控。鉴于此，本公司制定本《隐私权政策》（下
+                      称“本政策/本隐私权政策”）并提醒您：
+                      本政策适用于成都优讯科技有限公司提供的所有产品和服务。需要特别说明的是，本政策不
+                      适用其他独立第三方向您提供的服务，也不适用于小程序中已另行独立设置法律声明及隐私
+                      权政策的产品或服务。
+                      在使用小程序各项产品或服务前，请您务必仔细阅读并透彻理解本政策，在确认充分理解并
+                      在同意后使用相关产品或服务。一旦您开始使用小程序各项产品或服务，即表示您已充分
+                      理解并同意本政策。
+                  </view>
+                        <view style="text-align: justify" wx:else> 
+                        Your trust is very important to us, and we also completely know the great importance of personal information to you. According to People’s Republic of China Cyber Security Law, Information Technology-Personal Information Security Specification, Regulations for the Protection of Personal Information of Telecommunication and Internet Users, Decision of the Standing Committee of the National People's Congress on Strengthening the Network Information Protection and other relevant laws and regulations,  appropriate security protection measures are required to be taken to try to protect your personal information safe and controllable. In view of this, the company formulates this "Privacy Policy" (hereinafter referred to as "this policy/this privacy policy") and reminds you as follows.
+This policy applies to all products and services provided by Chengdu Youxun Technology Co., Ltd. It should be noted that this policy does not apply to the services provided by other independent third parties to you, nor does it apply to the products or services in the mini Apps that have separately set up a legal notice and privacy policy.
+Before using the products or services of the mini Apps, please read and thoroughly understand this policy, and confirm the full understanding and use the related products or services after consent. Once you start using the mini App products or services, it means that you have fully understood and agreed to this policy.
+                  </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'第一部分定义':'Part One Definition'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify" wx:if="{{languageType==''}}"> 
+                      小程序产品及服务：主要包含景区门票及景区的便利服务。
+                      用户：下称“您”或“用户”，是指登录、使用、浏览、获取本政策项下服务的个人或组织。
+                      个人信息：指以电子或者其他方式记录的能够单独或者与其他信息结合识别特定自然人身份
+                      或者反映特定自然人活动情况的各种信息。
+                      敏感信息：指包括身份证号码、个人生物识别信息、行踪轨迹、交易信息、未成年人信息等
+                      个人信息。
+                  </view>
+                        <view style="text-align: justify" wx:else></view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'第二部分隐私政策':'Part Two Privacy Policy'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify">
+                            <view wx:for="{{firstNotice}}" wx:key="key">
+                            {{item.content}}
+                      </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'一、如何收集信息':'1. How Mini Apps Collect Information'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify">
+                            <view wx:for="{{secendNotice}}" wx:key="key">
+                                <view style="margin:5px 0 ;font-weight:bold;text-indent:-6px;font-size:14px">
+                            {{item.title}}
+                      </view>
+                                <view>
+                            {{item.content}}
+                      </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'二、小程序如何使用信息':'2.Applets use information'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify">
+                            <view wx:for="{{thirdNotice}}" wx:key="key">
+                            {{item.content}}
+                      </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'三、如何保护您的信息':'3.How We Protect Your Information'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify;text-indent:24px" wx:if="{{languageType==''}}"> 
+                      为保障您的信息安全，我们已采取符合业界标准、合理可行的各类物理、电子和管理方面
+                      的安全措施来保护您的信息，使您的信息不会被泄漏、毁损或者丢失，包括但不限于设置
+                      部署主机入侵检测系统、重要敏感数据加密存储、日志记录安全审计。对可能接触到您的
+                      信息的员工采取了严格管理，包括但不限于根据岗位的不同采取不同的权限控制，与他们
+                      签署保密协议，监控他们的操作情况等措施。我们会按现有技术提供相应的安全措施来保
+                      护您的信息，提供合理的安全保障，将尽力做到使您的信息不被泄漏、毁损或丢失。在不
+                      幸发生个人信息安全事件后，我们将按照法律法规的要求向您告知：安全事件的基本情况
+                      和可能的影响、我们已采取或将要采取的处置措施、您可自主防范和降低风险的建议、对
+                      您的补救措施等。事件相关情况我们将以邮件、信函、电话、推送通知等方式告知您，难
+                      以逐一告知个人信息主体时，我们会采取合理、有效的方式发布公告。同时，我们还将按
+                      照监管部门要求，上报个人信息安全事件的处置情况。
+                  </view>
+                        <view style="text-align: justify;text-indent:24px" wx:else> 
+                      To ensure the security of your information, we have adopted various physical, electronic and management security measures that are in line with industry standards and are reasonably practicable to protect your information so that your information will not be leaked, damaged or lost,  including but not limited to setting up and deploying host intrusion detection systems, encrypted storage of important sensitive data, and security audits of log records. Strict management is adopted for employees who may come into contact with your information, including but not limited to taking different authority controls according to different positions, signing confidentiality agreements with them, monitoring their operation and other measures. We will provide corresponding security measures according to the existing technology to protect your information, provide reasonable security guarantees, and will do our best to prevent your information from being leaked, damaged or lost. In the unfortunate event of a personal information security incident, we will inform you in accordance with the requirements of laws and regulations including the basic situations and possible impact of the security incidents, the disposal measures we have taken or will take, your independent prevention and risk reduction suggestions, remedies for you, etc. We will inform you by email, letter, phone, push notification, etc. about the incident. If it is difficult to inform the personal information one by one, we will adopt a reasonable and effective way to release the announcement. At the same time, we will also report the handling of personal information security incidents in accordance with the requirements of regulatory authorities.
+                  </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'四、争议解决':'4. Dispute Resolution'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify">
+                            <view wx:for="{{fourNotice}}" wx:key="key">
+                            {{item.content}}
+                      </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        {{languageType==''?'五、如何联系我们':'5. How to Contact Us'}}
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view style="text-align: justify">
+                            <view wx:for="{{fiveNotice}}" wx:key="key">
+                            {{item.content}}
+                      </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

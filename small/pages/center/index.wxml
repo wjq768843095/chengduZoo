@@ -1,0 +1,81 @@
+<view class="server">
+    <contact-button sessionFrom="weapp" size="27" type="default-dark"></contact-button>
+</view>
+<view class="zan-pannel">
+    <view class="g-bda-userinfo">
+        <view style="pading-top:25px">
+            <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+        </view>
+        <view style="text-align:center;font-size:12px">
+            <open-data type="userNickName"></open-data>
+        </view>
+    </view>
+</view>
+<view class="zan-panel" style="border-top:0px;border-bottom:0px;"></view>
+<view class="container">
+    <view class="zan-panel" style="border-top:0px;border-bottom:0px;">
+        <view class="zan-cell">
+            <view class="zan-cell__bd">
+                <view class="zan-pull-left">我的订单</view>
+                <navigator url="/pages/order-list/index?id=1">
+                    <view class="zan-pull-right smallsize">查看全部订单 ></view>
+                </navigator>
+            </view>
+        </view>
+        <view class="zan-cell" style="margin:0px;padding:12px 0px;">
+            <view class="zan-cell__bd">
+                <view class="icon-wrap">
+                    <navigator url="../order-list/index?id=2">
+                        <view class="zan-icon zan-icon-wechat" style="font-size: 25px;"></view>
+                        <view class="icon-classname smallsize">待付款</view>
+                    </navigator>
+                </view>
+                <view class="icon-wrap">
+                    <navigator url="../order-list/index?id=3">
+                        <view class="zan-icon zan-icon-tosend" style="font-size: 25px;"></view>
+                        <view class="icon-classname smallsize">已退款</view>
+                    </navigator>
+                </view>
+                <view class="icon-wrap">
+                    <navigator url="../order-list/index?id=4">
+                        <view class="zan-icon zan-icon-shopping-cart" style="font-size: 25px;"></view>
+                        <view class="icon-classname smallsize">待使用</view>
+                    </navigator>
+                </view>
+                <view class="icon-wrap">
+                    <navigator url="../order-list/index?id=5">
+                        <view class="zan-icon zan-icon-sign" style="font-size: 25px;"></view>
+                        <view class="icon-classname smallsize">已完成</view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-panel" style="border-top:0px;border-bottom:0px;">
+        <view class="zan-cell">
+            <view bindtap="cart" class="zan-cell__bd">
+                <view class="zan-pull-left">购物车</view>
+                <view class="zan-pull-right smallsize">></view>
+            </view>
+        </view>
+        <view class="zan-cell" style="display:none;">
+            <view bindtap="feedback" class="zan-cell__bd">
+                <view class="zan-pull-left">反馈建议</view>
+                <view class="zan-pull-right smallsize">></view>
+            </view>
+        </view>
+        <view class="zan-cell">
+            <view bindtap="toaddress" class="zan-cell__bd">
+                <view class="zan-pull-left">收货地址</view>
+                <view class="zan-pull-right smallsize">></view>
+            </view>
+        </view>
+    </view>
+    <view class="page__ft">
+        <view class="page__bd page__bd_spacing">
+            <view class="weui-footer ">
+                <view class="weui-footer__text">Copyright © 2013-2018 www.cdusc.cn</view>
+            </view>
+        </view>
+    </view>
+</view>

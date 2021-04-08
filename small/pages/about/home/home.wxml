@@ -1,0 +1,51 @@
+<view style="position:fixed;width:100%;height:24px;background-color:white"></view>
+<scroll-view scrollY class="scrollPage" style="padding-top:24px">
+    <view style="clearfix">
+        <view class="cu-bar bg-white">
+            <view class="action">
+                <text style="font-weight:normal" wx:if="{{languageType==''}}">{{spotName}}</text>
+                <text style="font-weight:normal" wx:else>{{englishName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="clearfix" style="width:100%;background-color:#07b461;position:relative;height:140px;">
+        <image src="/images/myBg.png" style="height:140px;width:100%;position:absolute"></image>
+        <view class="clearfix" style="padding:24px 0;position:absolute">
+            <view class="cu-avatar xl round margin-left" style="float:left;overflow:hidden">
+                <open-data style="margin-top:8px" type="userAvatarUrl"></open-data>
+            </view>
+            <view style="color:white;float:left;margin-left:20px;margin-top:10%;color:black">
+                <open-data lang="zh_CN" type="userNickName"></open-data>
+            </view>
+        </view>
+        <view class="radius shadow bg-white clearfix" style="margin:0 10px;border-radius:8px;overflow:hidden;position:absolute;width:95%;bottom:-50px;">
+            <view class="cu-list grid col-{{gridCol}} no-border" style="margin-top:-2px;">
+                <view class="cu-item" style="padding:0px;margin-top:4px" wx:if="{{index<gridCol*2}}" wx:for="{{orderList}}" wx:key="key">
+                    <navigator openType="navigate" url="/pages/about/about/about?index={{item.index}}">
+                        <view class="clearfix" style="width:100%">
+                            <image class="notice-picture" src="{{item.icon}}" style="width:50%;height:38px;"></image>
+                        </view>
+                        <text style="margin-top:0px">{{item.name}}</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="radius shadow bg-white" style="margin:60px 10px 0 10px;border-radius:8px;overflow:hidden;display:none">
+        <view class="cu-bar justify-start bg-white solid-bottom" style="margin-top:10px">
+            <view class="action sub-title ">
+                <text class="text-xl text-bold text-black">分类订单</text>
+                <text class="text-ABC text-blue" style="bottom:-0.45rem;left:2.5rem;"></text>
+            </view>
+        </view>
+        <view class="cu-list grid col-{{gridCol}} no-border" style="margin-top:-2px;">
+            <view class="cu-item" style="padding:0px;margin-top:4px" wx:if="{{index<gridCol*2}}" wx:for="{{iconList}}" wx:key="key">
+                <view class="clearfix" style="width:100%">
+                    <image class="notice-picture" src="{{item.icon}}" style="width:60%;height:46px;"></image>
+                </view>
+                <text style="margin-top:0px">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</scroll-view>

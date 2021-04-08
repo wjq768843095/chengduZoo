@@ -1,0 +1,223 @@
+page {
+    height: 100%;
+}
+
+.content {
+    height: 500rpx;
+    display: flex;
+    flex-direction: column;
+    font-family: 微软雅黑,宋体;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 17px;
+}
+
+.background,.content {
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+.background {
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.info {
+    width: 100%;
+    height: 140px;
+}
+
+.city {
+    width: 100%;
+    text-align: center;
+    padding-top: 30rpx;
+    padding-bottom: 20rpx;
+}
+
+.city .weekday {
+    float: left;
+    font-size: 30rpx;
+    font-weight: 700;
+    text-align: left;
+    padding-top: 20rpx;
+    padding-left: 30rpx;
+    width: 30%;
+}
+
+.city .cityName {
+    display: inline;
+    font-size: 50rpx;
+}
+
+.city .currentDate {
+    float: right;
+    font-size: 30rpx;
+    font-weight: 700;
+    text-align: right;
+    padding-top: 20rpx;
+    padding-right: 30rpx;
+    width: 30%;
+}
+
+.temp {
+    margin: 20rpx 20rpx 0 0;
+    text-align: center;
+    padding-bottom: 30rpx;
+}
+
+.currentTemp {
+    font-size: 120rpx;
+    line-height: 130rpx;
+    color: #fff;
+}
+
+.currentTemp,.temp_right {
+    position: relative;
+    display: inline-block;
+}
+
+.temp_right {
+    padding-left: 10rpx;
+    vertical-align: top;
+    text-align: left;
+}
+
+.celsius {
+    font-size: 40rpx;
+    padding-top: 10rpx;
+    color: #fff;
+}
+
+.realtime {
+    font-size: 30rpx;
+    padding-top: 5rpx;
+}
+
+.weatherIcon {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 161rpx;
+    height: 161rpx;
+    border-radius: 50%;
+}
+
+.type {
+    font-weight: 700;
+    text-align: center;
+}
+
+.tempRange {
+    margin-top: 20rpx;
+}
+
+.tempRange,.wind {
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5rpx;
+}
+
+.wind {
+    margin: 20rpx 0;
+}
+
+.air {
+    width: 35%;
+    text-align: center;
+    padding: 5rpx;
+    margin: 0 auto;
+    justify-content: center;
+    border: 1px solid #0e0;
+    background-color: #0e0;
+    border-radius: 10rpx;
+}
+
+.air,.forecast {
+    font-weight: 700;
+    display: flex;
+}
+
+.forecast {
+    width: 100%;
+    margin-top: 480rpx;
+    align-self: flex-end;
+    padding-bottom: 30rpx;
+}
+
+.forecastIcon {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.next-day {
+    width: 30%;
+    height: 430rpx;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+    margin: 0 10rpx;
+    border-radius: 10rpx;
+    background-color: hsla(0,0%,100%,.3);
+}
+
+.date {
+    margin-bottom: 20rpx;
+    color: #fff;
+}
+
+.tips {
+    width: 90%;
+    padding: 10rpx;
+    margin: 30rpx auto;
+    border-radius: 10rpx;
+    background-color: hsla(0,0%,100%,.3);
+}
+
+.index {
+    color: #fff;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.description {
+    line-height: 22px;
+    margin: 5px 0;
+}
+
+.search-area {
+    padding: 1rem .5rem;
+}
+
+.search-area,.search-area input {
+    display: flex;
+}
+
+.search-area input {
+    width: 60%;
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 6px 0 #ccc;
+    color: #000;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding-left: 30rpx;
+}
+
+.search-area button {
+    width: 20%;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 2rpx;
+}
+
+.textShadow {
+    text-shadow: 1px 1px 4px #1e73c2;
+}

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "反馈意见",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

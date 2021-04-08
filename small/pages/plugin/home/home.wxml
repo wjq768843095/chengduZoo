@@ -1,0 +1,23 @@
+<view style="position:fixed;width:100%;height:24px;background-color:white"></view>
+<scroll-view scrollY class="scrollPage" style="padding-top:24px">
+    <view style="clearfix">
+        <view class="cu-bar bg-white">
+            <view class="action">
+                <text style="font-weight:normal">成都大熊猫繁育研究基地</text>
+            </view>
+        </view>
+    </view>
+    <view class="cu-card">
+        <view bindtap="toChild" class="cu-item bg-img shadow-blur bg-{{item.color}}" data-url="{{item.url}}" style="background-color:{{item.bcolor}};" wx:for="{{list}}">
+            <view class="clearfix" style="position: relative">
+                <view class="cardTitle" style="float:left">
+          {{item.title}}
+        </view>
+                <view style="float:right">
+                    <image src="{{item.icon}}" style="width:80px;height:80px;margin:20px 30px 0 30px"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</scroll-view>
