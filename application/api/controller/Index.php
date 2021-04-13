@@ -324,7 +324,7 @@ class Index extends Api
         //         <view style="margin-top:14px;color:#fa421d" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004004'}}">
         //         {{languageType==''?'已退款':''}}
         //     </view>
-        $orderList = Db::name('app_order')->where('open_id',$params['openId'])->order('id desc')->select();
+        $orderList = Db::name('app_order')->where('open_id',$params['openId'])->where($where)->order('id desc')->select();
         $data = [];
         foreach($orderList as $order){
             $payStatus = '005001';
