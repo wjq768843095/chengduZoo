@@ -21,7 +21,7 @@ Page({
         } ],
         orderList: [],
         spotName: "",
-        englishName: "Jinsha Site Museum",
+        englishName: "MINJIANG ZIPINGPU",
         languageType: ""
     },
     onLoad: function(a) {

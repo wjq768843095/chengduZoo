@@ -57,7 +57,7 @@ Component({
         visitTotal: 0,
         nickName: "",
         spotName: "",
-        englishName: "Jinsha Site Museum",
+      englishName: "MINJIANG ZIPINGPU",
         nickUrl: "/images/headPortrait.png",
         languageType: ""
     },

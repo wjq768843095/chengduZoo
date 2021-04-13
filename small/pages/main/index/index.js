@@ -26,11 +26,13 @@ Component({
         timeDetermine: "false",
         endDate: "",
         spotName: "",
-        englishName: "Jinsha Site Museum",
+      englishName: "MINJIANG ZIPINGPU",
         scrollTop: 0,
         listLenth: "",
         modalcontent: "",
-        admissionTime: [],
+        modalcontentEn: "",
+        admissionTime: "",
+        admissionTimeEn: "",
         hasRealName: 0,
         hasAgree: !1,
         spotNo: "",
@@ -64,6 +66,12 @@ Component({
                 },
                 success: function(a) {
                     var e = l.fulldate + " 00:00", c = new Date(e), d = new Date(e.replace(/-/g, "/")), r = l.fulldate + " " + a.data.data.closeHours, u = new Date(r), h = new Date(r.replace(/-/g, "/"));
+                  console.log(e)
+                  console.log(c)
+                  console.log(d)
+                  console.log(r)
+                  console.log(u)
+                    console.log(h)
                     if ((c < s || d < s) && 1 == (s < u || s < h)) {
                         var m = t.GetDateStr(0), g = t.GetDateStr(1), p = t.GetDateStr(2), f = t.GetDateStr(3), w = new Date(m.fulldate), D = (w.setMonth(w.getMonth() + 3), 
                         t.GetDateStr(o + 1).iosFulldate), x = t.GetDateStr(o + 1).fulldate, T = "";
@@ -122,6 +130,7 @@ Component({
                 success: function(a) {
                     console.log(a), wx.hideLoading(), "success" == a.data.status ? t.setData({
                         publicNotice: a.data.data[0].content,
+                        publicNoticeEn: a.data.data[0].contentEn,
                         publicPicture: a.data.data[0].imgUrl
                     }) : wx.showModal({
                         title: "通知",
@@ -369,6 +378,7 @@ Component({
         },
         DateChange: function(t) {
             var a = t.currentTarget.dataset.date;
+            console.log(a)
             "3" == t.currentTarget.dataset.cur ? this.setData({
                 dateCur: t.currentTarget.dataset.cur
             }) : this.setData({
@@ -599,7 +609,10 @@ Component({
             var a = t.currentTarget.dataset.index;
             console.log(a), this.setData({
                 modalName: t.currentTarget.dataset.target,
-                modalcontent: this.data.ticketType[a].productApply
+              modalcontent: this.data.ticketType[a].productApply,
+                modalcontentEn: this.data.ticketType[a].productApplyEn,
+              admissionTime: this.data.ticketType[a].admissionTime,
+                admissionTimeEn: this.data.ticketType[a].admissionTimeEn
             });
         },
         hideModal: function(t) {
@@ -632,82 +645,82 @@ Component({
                 duration: 1e3
             }), !1);
         },
-        getNotice: function() {
-            var t = this, e = a.globalData.baseurl + "listSpotProducts" + ("?applicationNo=" + a.globalData.applicationNo);
-            wx.showLoading({
-                title: "english" == this.data.languageType ? "Loading..." : "加载中...",
-                mask: !0
-            }), wx.request({
-                url: e,
-                data: {
-                    spotNo: a.globalData.spotNo,
-                    openId: a.globalData.openId
-                },
-                method: "POST",
-                header: {
-                    "content-type": "application/json;charset=utf-8"
-                },
-                success: function(a) {
-                    if (wx.hideLoading(), "success" == a.data.status) if ("" != a.data.data) {
-                        for (var e = a.data.data.ticket_rule, i = [], o = [], n = [], s = [], l = [], c = 0; c < e.length; c++) {
-                            if (-1 != e[c].ticketRuleType.indexOf("免")) {
-                                var d = {
-                                    rule: e[c].ticketRuleContent,
-                                    type: e[c].ticketRuleType
-                                };
-                                i.push(d);
-                            }
-                            if (-1 != e[c].ticketRuleType.indexOf("半")) {
-                                var r = {
-                                    rule: e[c].ticketRuleContent,
-                                    type: e[c].ticketRuleType
-                                };
-                                o.push(r);
-                            }
-                            if (-1 != e[c].ticketRuleType.indexOf("折")) {
-                                var u = {
-                                    rule: e[c].ticketRuleContent,
-                                    type: e[c].ticketRuleType
-                                };
-                                n.push(u);
-                            }
-                            if (-1 != e[c].ticketRuleType.indexOf("团体")) {
-                                var h = {
-                                    rule: e[c].ticketRuleContent,
-                                    type: e[c].ticketRuleType
-                                };
-                                s.push(h);
-                            }
-                        }
-                        for (var m = 0; m < a.data.data.cost_description.length; m++) {
-                            var g = {
-                                ticketTab: a.data.data.cost_description[m].ticketTab,
-                                ticketTabContent: a.data.data.cost_description[m].ticketTabContent
-                            };
-                            l.push(g);
-                        }
-                        t.setData({
-                            admissionTime: a.data.data.instructions
-                        });
-                    } else t.setData({
-                        admissionTime: []
-                    }); else wx.showModal({
-                        title: "通知",
-                        showCancel: !1,
-                        content: "查询数据失败，请稍后重试...",
-                        confirmText: "确认"
-                    });
-                },
-                fail: function() {
-                    wx.hideLoading(), wx.showModal({
-                        title: "通知",
-                        showCancel: !1,
-                        content: "网络异常，请检查网络...",
-                        confirmText: "确认"
-                    });
-                }
-            });
-        },
+        // getNotice: function() {
+        //     var t = this, e = a.globalData.baseurl + "listSpotProducts" + ("?applicationNo=" + a.globalData.applicationNo);
+        //     wx.showLoading({
+        //         title: "english" == this.data.languageType ? "Loading..." : "加载中...",
+        //         mask: !0
+        //     }), wx.request({
+        //         url: e,
+        //         data: {
+        //             spotNo: a.globalData.spotNo,
+        //             openId: a.globalData.openId
+        //         },
+        //         method: "POST",
+        //         header: {
+        //             "content-type": "application/json;charset=utf-8"
+        //         },
+        //         success: function(a) {
+        //             if (wx.hideLoading(), "success" == a.data.status) if ("" != a.data.data) {
+        //                 for (var e = a.data.data.ticket_rule, i = [], o = [], n = [], s = [], l = [], c = 0; c < e.length; c++) {
+        //                     if (-1 != e[c].ticketRuleType.indexOf("免")) {
+        //                         var d = {
+        //                             rule: e[c].ticketRuleContent,
+        //                             type: e[c].ticketRuleType
+        //                         };
+        //                         i.push(d);
+        //                     }
+        //                     if (-1 != e[c].ticketRuleType.indexOf("半")) {
+        //                         var r = {
+        //                             rule: e[c].ticketRuleContent,
+        //                             type: e[c].ticketRuleType
+        //                         };
+        //                         o.push(r);
+        //                     }
+        //                     if (-1 != e[c].ticketRuleType.indexOf("折")) {
+        //                         var u = {
+        //                             rule: e[c].ticketRuleContent,
+        //                             type: e[c].ticketRuleType
+        //                         };
+        //                         n.push(u);
+        //                     }
+        //                     if (-1 != e[c].ticketRuleType.indexOf("团体")) {
+        //                         var h = {
+        //                             rule: e[c].ticketRuleContent,
+        //                             type: e[c].ticketRuleType
+        //                         };
+        //                         s.push(h);
+        //                     }
+        //                 }
+        //                 for (var m = 0; m < a.data.data.cost_description.length; m++) {
+        //                     var g = {
+        //                         ticketTab: a.data.data.cost_description[m].ticketTab,
+        //                         ticketTabContent: a.data.data.cost_description[m].ticketTabContent
+        //                     };
+        //                     l.push(g);
+        //                 }
+        //                 t.setData({
+        //                     admissionTime: a.data.data.instructions
+        //                 });
+        //             } else t.setData({
+        //                 admissionTime: []
+        //             }); else wx.showModal({
+        //                 title: "通知",
+        //                 showCancel: !1,
+        //                 content: "查询数据失败，请稍后重试...",
+        //                 confirmText: "确认"
+        //             });
+        //         },
+        //         fail: function() {
+        //             wx.hideLoading(), wx.showModal({
+        //                 title: "通知",
+        //                 showCancel: !1,
+        //                 content: "网络异常，请检查网络...",
+        //                 confirmText: "确认"
+        //             });
+        //         }
+        //     });
+        // },
         getApliction: function() {
             var t = this, e = a.globalData.baseurl + "getApp" + ("?applicationNo=" + a.globalData.applicationNo), i = "";
             wx.request({

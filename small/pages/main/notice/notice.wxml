@@ -5,179 +5,154 @@
     <view class="clearfix" style="width:100%;background-color:#ec8d33;padding:10px">
         <view class="clearfix" style="width:100%;height:100%;background-color:#ffffff;border:6px solid #bd7028">
             <view style="height:80px;padding:20px 0;width:100%">
-                <image src="/images/noticetitle.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:if="{{languageType==''}}"></image>
-                <image src="/images/noticetitleEnglish.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:else></image>
+                <image src="/images/noticetitleEnglish.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:if="{{languageType==''}}"></image>
+                <image src="/images/noticetitle.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:else></image>
             </view>
             <view style="padding:0 10px 20px 10px">
-                <view class="clearfix">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                <view class="clearfix" style="text-align: justify">
+                    <!-- <view class="clearfix" style="position: relative;height:50px;width:100%;">
                         <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
                         <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        景区营业时间
+                          <view style="float:left;color:#fffff">
+                            景区营业时间
+                          </view>
                         </view>
-                        </view>
-                    </view>
-                    <view>
-                        <text decode="{{true}}" wx:for="{{instructions}}" wx:key="key"> 
-                      {{item.ticketTab}}：{{item.ticketTabContent}}
-                  </text>
-                    </view>
+                    </view> -->
+                  <view>
+<text> 
+
+<text style="font-weight:600;">
+预定须知
+</text>
+入园时间：2021年2月10日至2月28日期间，每日上午9:00——晚上22:00;21:00停止售票，停止入馆
+</text>
+<text> 
+Daily opening hours: During the period from February10 to February 28, 2021, ticket sales will be stoppedfrom 9:00 a.m. to 22:00 p.m. and admission will bestopped at 21:00
+</text>
+<text> 
+入园地址：成都市青羊区金沙遗址路2号
+</text>
+<text> 
+Park entry : No . 2 Jinsha Site Road , Qingyang district ,Chengdu
+</text>
+<text> 
+入园须知：入园游客必须佩戴口罩，出示本人身份证或户口本等有效证件和健康码或其它相关健康证明，并配合工作人员进行体温测量和实名登记，体温无异常者方可入馆。如发现体温异常或其他紧急状况，须在博物馆临时隔离点配合接受检查。为做好错峰参观，游客可预约三个时段：9:00-13:00(26466人）,13:00-17:00(30877人）,17:00-21:00(30877人）
+</text>
+<text> 
+Admission notes: Visitors to the park must wear amask, show their ID card or account book and other
+valid documents and health code or other relevanthealth certificates, and cooperate with the staff for
+body temperature measurement and real nameregistration, body temperature is not abnormal mayenter the museum. Any abnormal body temperature or other emergency should be checked with the temporary isolation point of the museum. In order to do a good job of peak shifting, tourists can book three periods:9:00-13:00(26466 people),13:00-17:00 (30877 people),17:00-21:00(30877 people)
+</text>
+<text style="font-weight:600;">
+优惠政策
+</text>
+<text>
+半票说明：
+</text>
+<text>
+对6周岁（不含）-18周岁（含）未成年人，全日制大学本科及以下学历学生凭有效证件实行半价优惠。
+50% Discounts: for age 7-18 and full-time college students with valid ID
+</text>
+<text>
+免票说明：
+</text>
+<text>
+对持有效证件的离休人员、残疾人（含军残证）、60周岁及以上老年人免费。
+对持有效证件的现役军人免费。
+对持警官证的公安干警免费。
+对持革命烈士证的革命烈属免费。
+对6周岁以下（含6周岁）或身高1.3米以下（含1.3米）实现免费，需由监护人凭票带领入馆（监护人不享受免费）。
+对持成都市教育局发的《特级教师（校长）荣誉证》的免费。
+对持有有效证件的所有全国（含港澳台地区）医务工作者本人实行免费（免费期为2020年3月17日至2021年3月16日）。
+对为抗击疫情中履职尽责而殖职的医务人员、中国人民解放军、人民警察、社区工作者、村组工作组、志愿者的直系亲属，凭有效证明材料实行免费（免费期为2020年3月17日至2021年3月16日）。
+对抗疫一线医疗卫生人员的直系亲属，凭相关证明材料实行免费。
+对四川省援鄂医疗队队员及其随行直系亲属（直系亲属不超过3人）,凭相关证明材料实行免费
+</text>
+<text>
+Free Admission: seniors(60+) with valid ID
+Free Admission: people with Disabilities with valid ID
+Free Admission: children under age 7 who are accompanied by guardian with ticket
+Free Admission: all Chinese medical workers with valid ID(until March,16,2021)
+Free Admission: Direct relatives of people who has fallen on duty for resisting the COVID-19 epidemic,
+including Chinese medical workers , soldiers , policemen,community staff and volunteers.(until March,16,2021)
+Free Admis:The medical team members and their accompanying lineal relatives ( no more than 3 lineal
+relatives ) of Sichuan province aid Hubei medical team will be free of charge with relevant certification materials
+Free Admis : The medical team members and their accompanying lineal relatives (no more than 3 lineal relatives) of Sichuan province aid Hubei medical team will be free of charge with relevant certification
+materials
+Free Admis:The immediate family members of the front-line medical and health personnel in the fight
+against epidemic shall be free of charge on the strength of relevant certification materials
+</text>
+<text>
+八折优惠说明：
+</text>
+<text>
+新闻媒体记者凭国家新闻出版总署核发的记者证购买门票，本馆给予八折优惠。
+</text>
+<text style="font-weight:600;">
+购票须知
+</text>
+<text>
+1.费用包含：单人一次入园参观费用
+2.The fee is inclusive:One-person one-time
+admission fee
+3.备注：网络电子门票不提供兑换售票窗口纸质门票，需要纸质门票的游客建议到博物馆售票窗口购票
+</text>
+<text style="font-weight:600;">
+退票规则
+</text>
+<text>
+未使用的票可退。
+Unused tickets are refundable
+</text>
+<text style="font-weight:600;">
+发票说明
+</text>
+<text>
+发送您的购票信息，开票资料，收件邮箱至金沙遗址电子票公众号，联系后台客服帮您处理。
+</text>
+<text style="font-weight:600;">
+温馨提示
+</text>
+<text>
+为贯彻落实中央、省、市关于做好新冠肺炎常态化防控工作的相关要求，根据国务院联防联控机制综合组《关于做好2021年元旦和春节期间新冠肺炎疫情防控工作的通知》、《四川省2021年新冠肺炎疫情防控工作指南的通知》（川疫指发[2021]14号）等上级部门相关要求，结合目前我市疫情防控形势，现将我馆在春节期间（2021年2月10日至2月28日）开放相关事项公告如下：
+</text>
+<text>
+一、开放时间每日上午9:00——晚上22:00;21:00停止售票，停止入馆。
+二、预约方式
+  （一）关注金沙遗址博物馆微信公众号“金沙遗址博物馆”，根据参观需求填写相关信息实名预约。
+  （二）无智能设备的群体可到人工服务窗口现场实名预约。
+  （三）为做好错峰参观，游客可预约三个时段：9:00-13:00(26466人）,13:00-17:00(30877人）,17:00-21:00(30877人）。三、票价和购票方式
+   （一）票价
+      1、金沙遗址博物馆全价门票70元/人.次。
+      2、对6周岁（不含6周岁）-18周岁（含18周岁）未成年人、全日制大学本科及以下学历学生凭有效证件实行半价优惠。
+      3、以下人群免费：
+        (1)持有效证件的离休人员、残疾人（含军残证）、及60周岁以上（含60周岁）老年人；持有效证件的现役军人；持警官证的公安干警；持革命烈士证书的革命烈属；持成都市教育局颁发的《特级教师（校长）荣誉证》的；
+        (2)对6周岁以下（含6周岁）或身高1.3米以下（含1.3米）的儿童实行免费，需由监护人凭票带领入馆（监护人不享受免费）;
+        (3)医务人员相关免费优惠
+          A对持有有效证件的全国（含港澳台地区）所有医务工作者本人实行免费。对为抗击疫情中履职尽责而殖职的医务人员、中国人民解放军、人民警察、社区工作者、村组工作组、志愿者的直系亲属，凭有效证明材料实行免费。对抗疫一线医疗卫生人员的直系亲属，凭相关证明材料实行免费。
+          B.对四川省援鄂医疗队队员及其随行直系亲属(直系亲属不超过3人）,凭相关证明材料实行免费。
+    (二）购票方式
+      1、使用微信或支付宝现场扫码自助购买电子票。
+      2、线上OTA平台（美团、大众点评、携程、去哪儿、同程、驴妈妈等）购买电子票。
+      3、通过“金沙遗址博物馆”官方微信公众号购票。
+      4、凭有效身份证件在人工服务窗口实名购票。
+      5、符合免费政策的观众建议提前到我馆官方微信公众号上实名预约，无法预约者可持身份证原件配合相关证件到人工服务窗口兑换入馆凭证。
+      温馨提示：
+      为避免人员聚集、减少接触和排队时间，建议大家尽量在线上购票（预约）;
+      门票（纸质票和电子票）当日有效，扫码作废。
+四、入馆流程
+  1、实名购票
+  2、出示四川天府健康通二维码扫描我馆场所码，绿码者前往测温区。
+  3、进入测温区，体温正常者前往检票区。
+  4、用购票时填写的身份证或购票二维码，检票过闸入馆。
+五、游览须知
+  1、馆游客需积极配合工作人员每日对展厅和公共区域的消杀毒、清洁维护工作等工作，文明参观，共同营造文明、清洁、舒适、安全的参观环境。
+  2、游客如在游览过程中，出现发热或身体不适等情况，请及时联系工作人员。对于疑似新冠肺炎患者，将对其进行临时隔离，并按有关规定报告和处理。
+  3、因疫情防控需要，我馆不接待来自非低风险地区且无7日内核酸检测阴性报告和体温高于37.3度游客参观，敬请谅解。
+</text>
+                  </view>
                 </view>
-                <view class="clearfix">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{halfRule.length>0||freeRule.length>0||discountRule.length>0||groupRule.length>0}}">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        优惠政策
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view wx:if="{{halfRule.length>0}}">
-                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
-                            {{halfRule[0].type}}说明:
-                        </text>
-                            <view wx:for="{{halfRule}}" wx:key="key">
-                                <text decode="{{true}}"> 
-                              {{item.rule}}
-                            </text>
-                            </view>
-                        </view>
-                        <view wx:if="{{freeRule.length>0}}">
-                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
-                            {{freeRule[0].type}}说明:
-                        </text>
-                            <view wx:for="{{freeRule}}" wx:key="key">
-                                <text decode="{{true}}"> 
-                              {{item.rule}}
-                            </text>
-                            </view>
-                        </view>
-                        <view wx:if="{{discountRule.length>0}}">
-                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
-                            {{discountRule[0].type}}说明:
-                        </text>
-                            <view wx:for="{{discountRule}}" wx:key="key">
-                                <text decode="{{true}}"> 
-                              {{item.rule}}
-                            </text>
-                            </view>
-                        </view>
-                        <view wx:if="{{groupRule.length>0}}">
-                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
-                            {{groupRule[0].type}}说明:
-                        </text>
-                            <view wx:for="{{groupRule}}" wx:key="{{index}}">
-                                <text decode="{{true}}"> 
-                              {{item.rule}}
-                            </text>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{noticeRule.length>0}}">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        购票须知
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view wx:for="{{noticeRule}}" wx:key="key">
-                            <text decode="{{true}}"> 
-                        {{index+1}}.{{item.ticketTab}}：{{item.ticketTabContent}}
-                      </text>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix" wx:if="{{refund_instruction!=''}}">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        退票规则
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view>
-                            <text decode="{{true}}"> 
-                          {{refund_instruction}}
-                        </text>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix" wx:if="{{luggage!=''}}">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        行李寄存
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view>
-                            <text decode="{{true}}"> 
-                          {{luggage}}
-                        </text>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix" wx:if="{{invoice_description!=''}}">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        发票说明
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view>
-                            <text decode="{{true}}"> 
-                          {{invoice_description}}
-                        </text>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix" wx:if="{{reminderNotice!=''}}">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        园区公告
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view>
-                            <text decode="{{true}}"> 
-                          {{reminderNotice}}
-                        </text>
-                        </view>
-                    </view>
-                </view>
-                <view class="clearfix" wx:if="{{publicNotice!=''}}">
-                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
-                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
-                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
-                            <view style="float:left;color:#fffff">
-                        温馨提示
-                        </view>
-                        </view>
-                    </view>
-                    <view>
-                        <view>
-                            <text decode="{{true}}"> 
-                        {{publicNotice}}
-                      </text>
-                        </view>
-                    </view>
-                </view>
+                
             </view>
         </view>
     </view>

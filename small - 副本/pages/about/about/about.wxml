@@ -1,0 +1,96 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="backText">{{languageType==''?'我的订单':'My order'}}</view>
+</cu-custom>
+<scroll-view scrollX class="bg-white nav" style="margin-bottom:2px;">
+    <view class="flex text-center">
+        <view bindtap="tabSelect" class="cu-item flex-sub {{index==TabCur?'text-yellow cur':''}}" data-id="{{item.index}}" wx:for="{{tabbar}}" wx:key="key">
+      {{item.tabName}}
+    </view>
+    </view>
+</scroll-view>
+<scroll-view>
+    <view class="clearfix" style="background-color:white;padding:0 15px 10px 15px;margin-bottom:10px;" wx:for="{{orderList}}" wx:key="key">
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004004'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004004'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004004'}}">{{languageType==''?'订单已退':'returned'}}</view>
+        </view>
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004001'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004001'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004001'}}">{{languageType==''?'订单待使用':'To be used'}}</view>
+        </view>
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005002'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005002'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005002'}}">{{languageType==''?'订单待支付':'To be paid'}}</view>
+        </view>
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004002'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004002'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004002'}}">{{languageType==''?'订单已完成':'Finish'}}</view>
+        </view>
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004007'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004007'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004007'}}">{{languageType==''?'订单出票中':'On the way'}}</view>
+        </view>
+        <view class="clearfix" style="width:100%;text-align:right;padding:6px 0" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004777'}}">
+            <view style="float:left" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004777'}}">{{languageType==''?'订单号：':'Orders number：'}}{{item.orderNo}}</view>
+            <view style="text-align:right;float:right;" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004777'}}">{{languageType==''?'订单出票失败':'Failed to issue'}}</view>
+        </view>
+        <view style="display: flex;flex-direction:row;background-color:#f0f0f0;padding:8px 12px;border-radius:6px;justify-content:space-between;">
+            <view style="width:80px;height:80px;margin-right:10px">
+                <image src="{{item.orders[0].productImg}}" style="width:80px;height:80px"></image>
+            </view>
+            <view style="padding:6px 0">
+                <view class="clearfix" style="font-weight:bold;margin-bottom:4px;" wx:if="{{languageType==''}}">
+                  {{spotName}}
+              </view>
+                <view class="clearfix" style="font-weight:bold;margin-bottom:4px;" wx:else>
+                  {{englishName}}
+              </view>
+                <view class="clearfix" style="margin-bottom:4px;font-size:12px;color:#666;" wx:for="{{item.orders}}" wx:key="key">
+                    <view wx:if="{{item.orderQuantity>0}}">
+                        <view wx:if="{{languageType==''}}">{{item.productName}} X{{item.orderQuantity}}</view>
+                        <view wx:else>{{item.productEnglishName}} X{{item.orderQuantity}}</view>
+                    </view>
+                </view>
+                <view class="clearfix" style="font-size:12px;color:#666;">
+                  {{languageType==''?'有效期：':'Period of validity：'}}{{item.orders[0].playTime}}  
+              </view>
+            </view>
+            <view style="padding-top:6px;font-size:16px;color:#fa421d;padding-left:10px;font-weight:600;display:flex;flex-direction:column;">
+                <view style="padding-top:6px;font-size:16px;color:#fa421d;padding-left:10px;font-weight:600;">
+                  ￥{{item.totalAmount}}
+            </view>
+                <view style="margin-top:14px;color:#33a7e0 " wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004007'}}">
+                {{languageType==''?'出票中':''}}
+            </view>
+                <view style="margin-top:14px;color:#ff871c" wx:if="{{item.payStatus=='005002'}}">
+                {{languageType==''?'未支付':''}}
+            </view>
+                <view style="margin-top:14px;color:#fa421d" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004777'}}">
+                {{languageType==''?'出票失败':''}}
+            </view>
+                <view style="margin-top:14px;color:#646665" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004002'}}">
+                {{languageType==''?'已使用':''}}
+            </view>
+                <view style="margin-top:14px;color:#07b461" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004001'}}">
+                {{languageType==''?'待使用':''}}
+            </view>
+                <view style="margin-top:14px;color:#fa421d" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004004'}}">
+                {{languageType==''?'已退款':''}}
+            </view>
+            </view>
+        </view>
+        <view style="display: flex;flex-direction:row;justify-content:flex-end">
+            <view style="display: flex;flex-direction:row;">
+                <button bindtap="refundOrder" class="cu-btn block bg-red margin-tb-sm lg" data-orderNo="{{item.orderNo}}" style="margin-left:10px;height:60rpx;margin-bottom:0px" type="" wx:if="{{item.payStatus=='005001'&&(item.orderStatus=='004001'||item.refundStatus=='002777'||item.orderStatus=='004777')}}">
+              {{languageType==''?'立即退票':'To refund'}}
+              </button>
+                <navigator bindtap="orderDetail" class="cu-btn block bg-green margin-tb-sm lg" data-orderNo="{{item.orderNo}}" style="margin-left:10px;height:60rpx;color:white;border-radius:6px;margin-bottom:0px" type="" wx:if="{{item.payStatus=='005001'&&item.orderStatus=='004001'}}">
+              {{languageType==''?'查看二维码':'To view'}}
+              </navigator>
+                <button bindtap="continuePay" class="cu-btn block bg-orange margin-tb-sm lg" data-orderNo="{{item.orderNo}}" style="margin-left:10px;height:60rpx;margin-bottom:0px" type="" wx:if="{{item.payStatus=='005002'}}">
+              {{languageType==''?'去支付':'To pay'}}
+              </button>
+            </view>
+        </view>
+    </view>
+</scroll-view>

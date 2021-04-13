@@ -324,4 +324,22 @@ class Api
         //刷新Token
         $this->request->token();
     }
+
+    /**
+     * 限制必须传入指定参数
+     */
+    protected function checkNeedParam($array)
+    {
+        if(is_array($array) && count($array))
+        {
+            //如果设置了必要参数 则检查
+            foreach($array as $k => $v)
+            {
+                if(!isset($this->_data[$k]))
+                {
+                    $this->error($v ? trim($v):'need '.$k, null, 1013);
+                }
+            }
+        }
+    }
 }

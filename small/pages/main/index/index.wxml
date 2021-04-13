@@ -16,14 +16,14 @@
             <view class="cu-list menu clearfix sm-border" style="width:100%;overflow:hidden">
                 <view bindtap="openNoticeMain" class="cu-item" data-target="Image" style="min-height:80rpx;">
                     <view class="content">
-                        <image class="notice-picture" src="/images/notice.png" style="width:1.2em;height:1.2em;margin-right:10px"></image>
+                        <image class="notice-picture" src="/images/notice.jpg" style="width:1.3em;height:1.3em;margin-right:10px"></image>
                         <text class="text-black" style="white-space:nowrap; text-overflow: ellipsis; overflow: hidden;width:300px;font-size:0.8rem;color:{{publicFontColor}}" wx:if="{{languageType==''}}">公告：{{publicNotice}}</text>
-                        <text class="text-black" style="white-space:nowrap; text-overflow: ellipsis; overflow: hidden;width:300px;font-size:0.8rem;color:{{publicFontColor}}" wx:else>Notes:Welcome to Jinsha Site Museum！</text>
+                        <text class="text-black" style="white-space:nowrap; text-overflow: ellipsis; overflow: hidden;width:300px;font-size:0.8rem;color:{{publicFontColor}}" wx:else>Notes:{{publicNoticeEn}}</text>
                     </view>
                 </view>
                 <view bindtap="gotoLcation" class="cu-item" style="min-height:80rpx;">
                     <view class="content">
-                        <image class="notice-picture" src="/images/local.png" style="width:1.0em;height:1.3em;margin-right:10px"></image>
+                        <image class="notice-picture" src="/images/local.png" style="width:1.3em;height:1.3em;margin-right:10px"></image>
                         <text class="text-black" style="font-size:0.8rem" wx:if="{{languageType==''}}">{{spotName}}一键导航</text>
                         <text class="text-black" style="font-size:0.8rem" wx:else>{{englishName}} Navigation</text>
                     </view>
@@ -37,19 +37,19 @@
                         <view class="clearfix" style="width:100%;position:absolute;z-index:100;background-color:white">
                             <view class="clearfix datachoise" style="height:42px;overflow:hidden;position:relative">
                                 <view class="clearfix" style="float:left;width:75%">
-                                    <view bindtap="DateChange" class="clearfix {{dateCur=='0'?'bg-gradual-orange':''}}" data-cur="0" data-date="{{starttime.fulldate}}" data-time="{{starttime.dayTime}}" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='0'?'white':'#333'}};background-color:{{dateCur=='0'?'#ec8d32':'white'}};position:relative;height:42px">
+                                    <view bindtap="DateChange" class="clearfix {{dateCur=='0'?'bg-gradual-orange':''}}" data-cur="0" data-date="today" data-time="{{starttime.dayTime}}" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='0'?'white':'#333'}};background-color:{{dateCur=='0'?'#ec8d32':'white'}};position:relative;height:42px">
                                         <view style="position:absolute;top:0px;left:10px">
                           {{starttime.abbreviationdate}}
                           <text style="font-size:10px;color:{{dateCur=='0'?'white':'#999'}};">{{timeDetermine=='false'?languageType==''?'今天':'Today':languageType==''?'明天':'Tomorrow'}}</text>
                                         </view>
                                     </view>
-                                    <view bindtap="DateChange" class="clearfix {{dateCur=='1'?'bg-gradual-orange':''}}" data-cur="1" data-date="{{tomorrowtime.fulldate}}" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='1'?'white':'#333'}};position:relative;height:42px">
+                                    <view bindtap="DateChange" class="clearfix {{dateCur=='1'?'bg-gradual-orange':''}}" data-cur="1" data-date="tomorrow" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='1'?'white':'#333'}};position:relative;height:42px">
                                         <view style="position:absolute;top:0px;left:10px">
                           {{tomorrowtime.abbreviationdate}}
                           <text style="font-size:10px;color:{{dateCur=='1'?'white':'#999'}};">{{timeDetermine=='false'?languageType==''?'明天':'':languageType==''?'后天':''}}</text>
                                         </view>
                                     </view>
-                                    <view bindtap="DateChange" class="clearfix {{dateCur=='2'?'bg-gradual-orange':''}}" data-cur="2" data-date="{{afterTomorrow.fulldate}}" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='2'?'white':'#333'}};position:relative;height:42px">
+                                    <view bindtap="DateChange" class="clearfix {{dateCur=='2'?'bg-gradual-orange':''}}" data-cur="2" data-date="aftertomorrow" style="float:left;width:33.33%;line-height:42px;color:{{dateCur=='2'?'white':'#333'}};position:relative;height:42px">
                                         <view style="position:absolute;top:0px;left:10px">
                           {{afterTomorrow.abbreviationdate}}
                           <text style="font-size:10px;color:{{dateCur=='2'?'white':'#999'}};">{{timeDetermine=='false'?languageType==''?'后天':'':languageType==''?'大后天':''}}</text>
@@ -92,10 +92,11 @@
                                         </view>
                                         <view class="text-gray text-sm flex">
                                             <text class="text-cut" style="font-size:10px;border:1px solid #F7B842;padding:0 10px;border-radius:4px;line-height:16px;margin-top:5px;color:#666" wx:if="{{languageType==''}}">{{item.productNotice}}</text>
-                                            <text class="text-cut" style="font-size:10px;border:1px solid #F7B842;padding:0 10px;border-radius:4px;line-height:16px;margin-top:5px;color:#666" wx:else>Click here</text>
+                                            <text class="text-cut" style="font-size:10px;border:1px solid #F7B842;padding:0 10px;border-radius:4px;line-height:16px;margin-top:5px;color:#666" wx:else>{{item.productNoticeEn}}</text>
                                         </view>
                                         <view bindtap="openNotice" class="text-gray text-sm flex" data-index="{{index}}" data-target="bottomModal">
                                             <text class="text-cut" decode="true" style="font-size:12px;margin-top:1.1rem;color:rgba(236,141,50,1)" wx:if="{{languageType==''}}">购买须知&nbsp;></text>
+                                            <text class="text-cut" decode="true" style="font-size:12px;margin-top:1.1rem;color:rgba(236,141,50,1)" wx:else>Purchase Notes&nbsp;></text>
                                         </view>
                                     </view>
                                     <view class="action" style="width:25%;text-align:right;height:90%;display:flex;flex-direction:column;justify-content:space-between;margin:2px 0 25px 0">
@@ -188,14 +189,14 @@
     <view class="cu-tabbar-height"></view>
 </scroll-view>
 <view style="position:fixed;bottom:100rpx;width:100%;z-index:100;">
-    <view class="cu-bar bg-white tabbar border shop" style="background-color:#FFA85B;overflow:hidden">
+    <view class="cu-bar bg-white tabbar border shop" style="background-color:#014689;overflow:hidden">
         <view style="width:50%;display:flex;align-items:flex-end;z-index:120">
             <view style="float:left;margin-left:20px;font-size:0.9rem;color:#fff" wx:if="{{languageType==''}}">合计:</view>
             <view style="float:left;margin-left:20px;font-size:0.9rem;color:#fff" wx:else>Total:</view>
             <view style="color:white;font-size:1.2rem">￥{{totalPrice}}</view>
         </view>
         <view class="" style="display:block;height:100%;z-index:120">
-            <button bindtap="paybtn" class="cu-btn" disabled="{{buttonClicked}}" style="float:right;height:100rpx;padding:0 26px;font-size:32rpx;background-color:#F95A48;border-radius:0;color:white;min-width:200rpx">
+            <button bindtap="paybtn" class="cu-btn" disabled="{{buttonClicked}}" style="float:right;height:100rpx;padding:0 26px;font-size:32rpx;background-color:#007250;border-radius:0;color:white;min-width:200rpx">
         {{languageType==''?'去支付':'Pay'}}
       </button>
         </view>
@@ -259,26 +260,27 @@
             </view>
         </view>
         <view style="padding:40rpx;height:600rpx;overflow: auto;">
-            <view style="border-bottom:1px solid #ededed;padding-bottom:10px" wx:if="{{!admissionTime==[]}}">
+            <view style="border-bottom:1px solid #ededed;padding-bottom:10px">
                 <view style="text-align:justify;border-left:4px solid #da000e;text-indent:10px">
             园区时间
         </view>
-                <view data-index="{{index}}" wx:for="{{admissionTime}}" wx:key="index">
-                    <view style="text-align:justify;width:60px;float:left">
-                {{item.ticketTab}}:
-            </view>
-                    <view style="text-align:justify;margin-top:5px">
-                {{item.ticketTabContent}}
-            </view>
+                <view wx:if="{{languageType==''}}" style="text-align:justify;margin-top:5px">
+                  {{admissionTime}}
+                </view>
+                <view wx:else style="text-align:justify;margin-top:5px">
+                  {{admissionTimeEn}}
                 </view>
             </view>
             <view style="border-bottom:1px solid #ededed;padding-bottom:10px;margin-top:5px">
                 <view style="text-align:justify;border-left:4px solid #da000e;text-indent:10px">
             适用范围
         </view>
-                <view style="text-align:justify;margin-top:5px">
-            {{modalcontent}}
-        </view>
+                <view wx:if="{{languageType==''}}" style="text-align:justify;margin-top:5px">
+                  {{modalcontent}}
+                </view>
+                <view wx:else style="text-align:justify;margin-top:5px">
+                  {{modalcontentEn}}
+                </view>
             </view>
         </view>
     </view>

@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "用户信息授权",
+    "usingComponents": {
+        "cu-custom": "/colorui/components/cu-custom"
+    }
+}

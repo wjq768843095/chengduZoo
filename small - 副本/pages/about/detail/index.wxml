@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="backText">{{languageType==''?'订单详情':'The order details'}}</view>
+</cu-custom>
+<view style="background:white;">
+    <view class="ticketbody">
+        <view class="top" style="background-color:white;font-weight: bold;">
+            <view class="ticketitle" wx:if="{{languageType==''}}">{{spotName}}电子票</view>
+            <view class="ticketitle" wx:else>{{englishName}} E-Ticket</view>
+        </view>
+        <view class="middle" style="background-color:white">
+            <view class="sfont" style="margin-top:10px">{{languageType==''?'订单号':'Orders number'}}</view>
+            <view class="bfont" style="font-size:18px">
+                {{orderDetail.orderNo}}
+              </view>
+            <view class="sfont" style="margin-top:5px">{{languageType==''?'有效日期':'Period of validity'}}</view>
+            <view class="bfont" style="font-size:18px">
+                {{orderDetail.orders[0].playTime}}
+              </view>
+            <view class="sfont" style="margin-top:5px">{{languageType==''?'总金额':'Total prices'}}</view>
+            <view class="bfont" style="font-size:18px">
+                {{orderDetail.totalAmount}}
+              </view>
+            <view class="statebox">
+                <view style="clear:both"></view>
+                <view wx:for="{{orderDetail.orders}}" wx:key="index">
+                    <div class="health-box" wx:if="{{isCheckHealthCode=='1'&&item.titleShow}}">
+                        <div class="state" style="color:{{item.healthColor}}">健康状态：{{item.healthState}}</div>
+                        <div class="time" style="background-color:{{item.healthColor}}">时间: {{item.updateTime}}</div>
+                    </div>
+                    <view>
+                        <view class="piaox">
+                            <view style="margin-top:20px;position: relative;">
+                                <view class="health-state-box" wx:if="{{isCheckHealthCode=='1'&&item.codeMaskShow}}">
+                                    <view class="text">
+                                        <view>
+                                 应疫情防控要求，黄码、红码游客暂不可入馆游览
+                              </view>
+                                    </view>
+                                </view>
+                                <view style="padding:20px;background-color:#ffffff;">
+                                    <view style="position: relative">
+                                        <image class="img" src="{{item.qrcodeUrl}}" style="{{item.orderStatus=='004001'?'opacity:1':'opacity:0.2'}}"></image>
+                                        <view style="position:absolute;top:0px;">
+                                            <image src="/images/used.png" style="width:155px;height:155px;{{item.orderStatus=='004001'?'display:none':'display:block'}}"></image>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view style="color:black; font-size:14px;margin-top:10px" wx:if="{{languageType==''}}">{{item.productName}}{{item.orderQuantity}}张</view>
+                            <view style="color:black; font-size:14px;margin-top:10px" wx:else>{{item.productEnglishName}}{{item.orderQuantity}}张</view>
+                            <view bindtap="save" data-imgUrl="{{item.qrcodeUrl}}" style="text-algin:center;color:#333;margin-top:10px;display:flex;flex-direction:column">
+                                <view style="text-algin:center;color:black">
+                                {{languageType==''?'请提前把二维码保存到相册，以便入园！':'Please save the QR code to the album in advance for enrollment'}}
+                            </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="footer"></view>
+        </view>
+    </view>
+</view>

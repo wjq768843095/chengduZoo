@@ -1,0 +1,50 @@
+.cu-bar .content image {
+    height: 60rpx;
+    width: 240rpx;
+}
+
+.cardTitle {
+    color: #fff;
+    padding: 90rpx 60rpx;
+    font-size: 40rpx;
+    font-weight: 300;
+    transform: skew(-10deg,0deg);
+    position: relative;
+    text-shadow: 0 0 6rpx rgba(0,0,0,.3);
+}
+
+.cardTitle::before {
+    width: 60rpx;
+    height: 6rpx;
+    border-radius: 20rpx;
+    top: 60rpx;
+    left: 50rpx;
+}
+
+.cardTitle::after,.cardTitle::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    display: block;
+    transform: skew(10deg,0deg);
+}
+
+.cardTitle::after {
+    width: 140rpx;
+    border-radius: 6rpx;
+    height: 24rpx;
+    bottom: 76rpx;
+    left: 90rpx;
+    opacity: .1;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}

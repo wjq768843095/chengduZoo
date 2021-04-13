@@ -1,0 +1,19 @@
+<basics wx:if="{{PageCur=='basics'}}"></basics>
+<component wx:if="{{PageCur=='component'}}"></component>
+<plugin wx:if="{{PageCur=='plugin'}}"></plugin>
+<about wx:if="{{PageCur=='about'}}"></about>
+<mian wx:if="{{PageCur=='main'}}"></mian>
+<view class="cu-bar tabbar bg-white shadow foot">
+    <view bindtap="NavChange" class="action" data-cur="main">
+        <view class="icon-cu-image">
+            <image src="/images/tabbar/basics{{PageCur=='main'?'_cur':''}}.png" style="width:60rpx;height:60rpx"></image>
+        </view>
+        <view class="{{PageCur=='main'?'text-orange':'text-gray'}}">{{languageType==''?'景区购票':'The scenic spot ticket'}}</view>
+    </view>
+    <view bindtap="NavChange" class="action" data-cur="about">
+        <view class="icon-cu-image">
+            <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png" style="width:60rpx;height:60rpx"></image>
+        </view>
+        <view class="{{PageCur=='about'?'text-orange':'text-gray'}}">{{languageType==''?'我的订单':'My order'}}</view>
+    </view>
+</view>

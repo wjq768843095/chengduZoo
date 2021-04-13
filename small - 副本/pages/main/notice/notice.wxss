@@ -1,0 +1,22 @@
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.notice-picture {
+    text-align: center;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.datachoise {
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}

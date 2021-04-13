@@ -1,0 +1,184 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+    <view slot="backText">预订须知</view>
+</cu-custom>
+<scroll-view scrollY class="scrollPage" style="">
+    <view class="clearfix" style="width:100%;background-color:#ec8d33;padding:10px">
+        <view class="clearfix" style="width:100%;height:100%;background-color:#ffffff;border:6px solid #bd7028">
+            <view style="height:80px;padding:20px 0;width:100%">
+                <image src="/images/noticetitle.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:if="{{languageType==''}}"></image>
+                <image src="/images/noticetitleEnglish.png" style="height:70px;width:260px;margin: 0 auto;display:block" wx:else></image>
+            </view>
+            <view style="padding:0 10px 20px 10px">
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{instructions.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        景区营业时间
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <text decode="{{true}}" wx:for="{{instructions}}" wx:key="key"> 
+                      {{item.ticketTab}}：{{item.ticketTabContent}}
+                  </text>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{halfRule.length>0||freeRule.length>0||discountRule.length>0||groupRule.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        优惠政策
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view wx:if="{{halfRule.length>0}}">
+                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
+                            {{halfRule[0].type}}说明:
+                        </text>
+                            <view wx:for="{{halfRule}}" wx:key="key">
+                                <text decode="{{true}}"> 
+                              {{item.rule}}
+                            </text>
+                            </view>
+                        </view>
+                        <view wx:if="{{freeRule.length>0}}">
+                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
+                            {{freeRule[0].type}}说明:
+                        </text>
+                            <view wx:for="{{freeRule}}" wx:key="key">
+                                <text decode="{{true}}"> 
+                              {{item.rule}}
+                            </text>
+                            </view>
+                        </view>
+                        <view wx:if="{{discountRule.length>0}}">
+                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
+                            {{discountRule[0].type}}说明:
+                        </text>
+                            <view wx:for="{{discountRule}}" wx:key="key">
+                                <text decode="{{true}}"> 
+                              {{item.rule}}
+                            </text>
+                            </view>
+                        </view>
+                        <view wx:if="{{groupRule.length>0}}">
+                            <text decode="{{true}}" style="font-size:16px;font-weight:bold"> 
+                            {{groupRule[0].type}}说明:
+                        </text>
+                            <view wx:for="{{groupRule}}" wx:key="{{index}}">
+                                <text decode="{{true}}"> 
+                              {{item.rule}}
+                            </text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;" wx:if="{{noticeRule.length>0}}">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        购票须知
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view wx:for="{{noticeRule}}" wx:key="key">
+                            <text decode="{{true}}"> 
+                        {{index+1}}.{{item.ticketTab}}：{{item.ticketTabContent}}
+                      </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix" wx:if="{{refund_instruction!=''}}">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        退票规则
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view>
+                            <text decode="{{true}}"> 
+                          {{refund_instruction}}
+                        </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix" wx:if="{{luggage!=''}}">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        行李寄存
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view>
+                            <text decode="{{true}}"> 
+                          {{luggage}}
+                        </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix" wx:if="{{invoice_description!=''}}">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        发票说明
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view>
+                            <text decode="{{true}}"> 
+                          {{invoice_description}}
+                        </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix" wx:if="{{reminderNotice!=''}}">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        园区公告
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view>
+                            <text decode="{{true}}"> 
+                          {{reminderNotice}}
+                        </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="clearfix" wx:if="{{publicNotice!=''}}">
+                    <view class="clearfix" style="position: relative;height:50px;width:100%;">
+                        <image src="/images/noticeitem.png" style="height:50px;width:160px;position: absolute;top:0px;left:0px"></image>
+                        <view style="position: absolute;top:18px;left:10px;color:#ffffff;">
+                            <view style="float:left;color:#fffff">
+                        温馨提示
+                        </view>
+                        </view>
+                    </view>
+                    <view>
+                        <view>
+                            <text decode="{{true}}"> 
+                        {{publicNotice}}
+                      </text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

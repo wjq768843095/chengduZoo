@@ -117,7 +117,7 @@ App({
     },
     globalData: {
         openId: "",
-        baseurl: "https://gopiao1.leleu.cn/app/clientHelper/",
+        baseurl: "http://lvyou.loveu.life/index.php/api/index/",
         params: "?applicationNo=260810",
         loadModal: !0,
         systemInfo: "",

@@ -3269,8 +3269,9 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-gradual-orange {
-    background-image: var(--gradualOrange);
+    /* background-image: var(--gradualOrange); */
     color: #fff;
+    background-color: #007250 !important;
 }
 
 .bg-gradual-green {

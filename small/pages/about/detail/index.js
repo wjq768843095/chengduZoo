@@ -6,7 +6,7 @@ Page({
         orderDetail: [],
         imgUrl: "",
         spotName: "",
-        englishName: "Jinsha Site Museum",
+      englishName: "MINJIANG ZIPINGPU",
         languageType: "",
         healthState: "",
         isCheckHealthCode: "",

@@ -1,0 +1,93 @@
+<import src="/dist/quantity/index.wxml"></import>
+<view style="margin-bottom:60px" wx:for="{{good}}" wx:for-item="group" wx:key="ticketTitel">
+    <view class="ticket-title fixed-spacing">
+    {{group.goodName}}
+  </view>
+    <view class="purchase-notice fixed-spacing clearfix">
+        <view class="wx-pull-left" style="width:70%;" wx:for="{{group.tips}}" wx:key="tips">
+            <view>
+        {{item.one}}
+      </view>
+            <view>
+        {{item.two}}
+      </view>
+        </view>
+        <view class="wx-pull-right" style="width:30%;">
+            <navigator style="height:100%;text-align:right; color:rgb(36,153,235)" url="../notice/notice">
+        购买须知 >
+      </navigator>
+        </view>
+    </view>
+    <view class="clearfix fixed-spacing" style="background-color:white;border:1px solid #ededed;">
+        <view class="subtitle wx-pull-left">
+      使用日期
+    </view>
+        <picker bindchange="bindDateChange" class="wx-pull-right" end="{{endtime}}" mode="date" start="{{starttime}}" style="text-align:center" value="{{date}}">
+      {{dates}}
+    </picker>
+    </view>
+    <view class="zan-cell" style="background-color:white;" wx:for="{{group.goodtickts}}" wx:key="goodtickts">
+        <view class="zan-cell__bd" style="font-size:16px;font-weight:bold;">
+      购买数量
+    </view>
+        <view class="zan-cell__ft">
+            <view class="zan-quantity" style="">
+                <view catchtap="minusBtnTap" class="zan-quantity__minus {{item.tnumber<=item.min?'zan-quantity--disabled':''}}" data-index="{{index}}" data-min="{{item.min}}">-</view>
+                <input class="zan-quantity__text" disabled="disabled" value="{{item.tnumber}}"></input>
+                <view catchtap="plusBtnTap" class="zan-quantity__plus {{item.tnumber>=item.max?'zan-quantity--disabled':''}}" data-index="{{index}}" data-max="{{item.max}}">+</view>
+            </view>
+        </view>
+    </view>
+    <view class="zan-cell" style="background-color:white;">
+        <view class="clearfix" style="font-size:16px;font-weight:bold;width:100%">
+            <text>游客信息</text>
+            <text style="margin-left:10px;font-size:12px;color:#ff4b00">须填写手机号码，以便接收入园短信</text>
+        </view>
+    </view>
+    <view class="zan-cell" style="background-color:white;">
+        <view class="zan-cell__bd" style="width:30%">
+      手机号
+    </view>
+        <view class="zan-cell__ft" style="width:40%">
+            <input bindblur="checkPhoneNum" placeholder="请输入手机号码" style="text-align:left"></input>
+        </view>
+        <view class="zan-cell__ft" style="color:rgb(204,100,129);width:30%">
+      必填
+    </view>
+    </view>
+    <view wx:if="group.goodtools.lenth>0">
+        <view class="fixed-spacing ticket-title" style="border:1px solid #ededed; display:{{islike}}">
+      猜你喜欢
+    </view>
+        <view class="fixed-spacing" style="background-color:white; border:1px solid #ededed" wx:if="goodtools.lenth>0" wx:for="{{group.goodtools}}" wx:key="goodtools">
+            <view class="wx-pull-left">
+                <image src="{{item.picture}}" style="width:60px;height:60px"></image>
+            </view>
+            <view class="wx-pull-left" style="margin:0 0 0 10px">
+                <view style="font-size:16px;font-weight:bold;margin-top:6px">{{item.name}}</view>
+                <view style="font-size:14px;margin-top:5px">￥{{item.price}}</view>
+            </view>
+            <view class="wx-pull-right">
+                <navigator style="font-size:14px;text-align:right; color:rgb(36,153,235)" url="../pdetail/pdetail">产品详情 ></navigator>
+                <view class="zan-cell__ft" style="margin-top:10px">
+                    <view class="zan-quantity" style="">
+                        <view catchtap="toolminusBtnTap" class="zan-quantity__minus  {{item.tnumber<=item.min?'zan-quantity--disabled':''}}" data-index="{{index}}" data-min="{{item.min}}">-</view>
+                        <input class="zan-quantity__text" value="{{item.tnumber}}"></input>
+                        <view catchtap="toolplusBtnTap" class="zan-quantity__plus  {{item.tnumber>=item.max?'zan-quantity--disabled':''}}" data-index="{{index}}" data-max="{{item.max}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="bottom-fixed" style="background-color:white;color:#ff4b00;z-index:10000">
+    <view class="wx-pull-left" style="margin:16px 0 0 5px;">
+        <text style="font-size:14px;">总价：￥</text>
+        <text style="font-weight:bold;font-size:20px;">{{totalPrice}}</text>
+    </view>
+    <view class="wx-pull-right">
+        <button catchtap="submitBtn" class="bottom-btn" style="background-color: #ff4b00;">
+      提交订单
+    </button>
+    </view>
+</view>

@@ -477,4 +477,44 @@ if (!function_exists('check_ip_allowed')) {
             exit;
         }
     }
+    if(!function_exists('systemGetRequestHost')){
+        /**
+         * 返回请求的域名
+         * @return string
+         */
+        function systemGetRequestHost($https = false){
+            if($https){
+                $http = 'https://';
+            }else{
+                $http = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://';
+            }
+            $http = $http . $_SERVER['SERVER_NAME'];
+            $port = $_SERVER["SERVER_PORT"] == 80 ? '' : ':' . $_SERVER["SERVER_PORT"];
+            $url = $http . $port;
+            return $url;
+            // return $url;
+        }
+    }
+
+    if(!function_exists('stringGetRandom')){
+        /**
+         * 生成32位随机字符串
+         * @return string
+         */
+        function stringGetRandom($length = 32)
+        {
+            // 密码字符集，可任意添加你需要的字符
+            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $password = '';
+            for ( $i = 0; $i < $length; $i++ )
+            {
+                // 这里提供两种字符获取方式
+                // 第一种是使用 substr 截取$chars中的任意一位字符；
+                // 第二种是取字符数组 $chars 的任意元素
+                // $password .= substr($chars, mt_rand(0, strlen($chars) – 1), 1);
+                $password .= $chars[ mt_rand(0, strlen($chars) - 1) ];
+            }
+            return $password;
+        }
+    }
 }

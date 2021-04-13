@@ -1,0 +1,81 @@
+<view style="position:fixed;width:100%;height:24px;background-color:white"></view>
+<scroll-view scrollY class="scrollPage" style="padding-top:24px">
+    <view style="clearfix">
+        <view class="cu-bar bg-white">
+            <view class="action">
+                <text style="font-weight:normal">成都大熊猫繁育研究基地</text>
+            </view>
+        </view>
+        <image class="response" mode="widthFix" src="/images/componentBg.png"></image>
+    </view>
+    <view class="cu-list grid col-{{gridCol}} no-border" style="margin-top:-2px;">
+        <view class="cu-item" style="padding:0px;margin-top:4px" wx:if="{{index<gridCol*2}}" wx:for="{{iconList}}">
+            <view class="clearfix" style="width:100%">
+                <image class="notice-picture" src="{{item.icon}}" style="width:40%;height:46px;"></image>
+            </view>
+            <text style="margin-top:0px">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="cu-bar justify-start bg-white" style="margin-top:10px">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-blue">热门推荐</text>
+            <text class="text-ABC text-blue" style="bottom:-0.45rem;left:2.5rem;">Hot</text>
+        </view>
+        <view></view>
+    </view>
+    <swiper autoplay="false" bindchange="cardSwiper" circular="true" class="card-swiper square-dot" duration="500" indicatorDots="true" interval="5000" style="background-color:white;">
+        <swiper-item class="{{cardCur==index?'cur':''}}" wx:for="{{swiperList}}">
+            <view class="swiper-item" style="position:relative;">
+                <view style="position:absolute;width:100%;height:100%">
+                    <image mode="aspectFill" src="{{item.url}}" wx:if="{{item.type=='image'}}"></image>
+                </view>
+                <view style="position:absolute;bottom:0px;color:white;width:100%;height:36px;line-height:36px;background-color:rgba(0,0,0,0.5);">
+                    <view style="color:white;position: relative;margin-left:20px">
+            {{item.text}}
+          </view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view class="cu-bar justify-start bg-white" style="margin-top:10px">
+        <view class="action sub-title">
+            <text class="text-xl text-bold text-blue">精选文创</text>
+            <text class="text-ABC text-blue" style="bottom:-0.45rem;left:2.5rem;">Selective</text>
+        </view>
+    </view>
+    <view class="clearfix" style="height:340rpx;background-color:white;padding:0 10px 20px 10px">
+        <view class="clearfix" style="width:50%;position:relative;height:100%;float:left">
+            <view class="clearfix" style="position:absolute;width:100%;height:100%;">
+                <image src="/images/selective1.png" style="width:100%;height:100%;border-radius:8px;background-size:cover"></image>
+            </view>
+            <view style="position:absolute;bottom:0px;color:white;width:100%;height:100%;background-color:rgba(0,0,0,0.5);border-radius:10px;">
+                <view style="color:white;position: relative;height:100%;padding-top:35%;text-align:center;">
+            四川元素
+          </view>
+            </view>
+        </view>
+        <view style="width:50%;position:relative;height:100%;float:right">
+            <view class="clearfix" style="height:50%">
+                <view class="clearfix" style="position:absolute;width:100%;height:50%;">
+                    <image src="/images/selective2.png" style="width:100%;height:100%;border-radius:6px;background-size:cover;padding-left:4px;padding-bottom:2px"></image>
+                </view>
+                <view style="position:absolute;top:0px;color:white;width:98%;height:48%;background-color:rgba(0,0,0,0.5);border-radius:6px;left:4px;padding-top:15%">
+                    <view style="color:white;position: relative;text-align:center;">
+            新品推荐
+          </view>
+                </view>
+            </view>
+            <view style="height:50%">
+                <view class="clearfix" style="position:absolute;width:100%;height:50%;">
+                    <image src="/images/selective3.png" style="width:100%;height:100%;border-radius:6px;background-size:cover;padding-left:4px;padding-top:2px"></image>
+                </view>
+                <view style="position:absolute;bottom:0px;color:white;width:98%;height:48%;background-color:rgba(0,0,0,0.5);border-radius:6px;left:4px;padding-top:15%">
+                    <view style="color:white;position: relative;text-align:center;">
+            人气单品
+          </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cu-tabbar-height"></view>
+</scroll-view>
