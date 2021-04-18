@@ -482,7 +482,7 @@ if (!function_exists('check_ip_allowed')) {
          * 返回请求的域名
          * @return string
          */
-        function systemGetRequestHost($https = false){
+        function systemGetRequestHost($https = true){
             if($https){
                 $http = 'https://';
             }else{
@@ -517,4 +517,5 @@ if (!function_exists('check_ip_allowed')) {
             return $password;
         }
     }
+
 }

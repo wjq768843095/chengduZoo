@@ -4,6 +4,7 @@
         "component": "/pages/component/home/home",
         "plugin": "/pages/plugin/home/home",
         "about": "/pages/about/home/home",
+        "intro": "/pages/about/intro/home",
         "mian": "/pages/main/index/index",
         "cu-custom": "/colorui/components/cu-custom"
     }

@@ -35,6 +35,10 @@ App({
                     success: function(t) {
                         if (console.log(t), "success" == t.data.status) {
                             var e = t.data.data.openid;
+                          wx.setStorage({
+                            key: "intro",
+                            data: t.data.data.intro
+                          })
                             a.globalData.openId = e, a.globalData.loadModal = !1, wx.setStorage({
                                 key: "openId",
                                 data: t.data.data.openid
@@ -117,7 +121,7 @@ App({
     },
     globalData: {
         openId: "",
-        baseurl: "http://lvyou.loveu.life/index.php/api/index/",
+        baseurl: "https://lvyou.loveu.life/index.php/api/index/",
         params: "?applicationNo=260810",
         loadModal: !0,
         systemInfo: "",

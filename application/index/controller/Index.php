@@ -737,12 +737,20 @@ class Index extends Frontend
         // dump($str);die;
         // $user_sign = strtoupper(md5($str)); //再次生成签名，与$postSign比较
         // dump($user_sign);die;
-        // 查询订单
-        $order = Db::name('app_order')->where([
+        Db::name('app_order')->where([
             'order_sn' => $post_data['out_trade_no'],
             'status' => 0
         ])->update([
             'status' => 1,
+            'transaction_id' => $post_data['transaction_id'],
+            'paytime' => time(),
+        ]);
+        Db::name('app_order')->where([
+            'order_sn_child' => $post_data['out_trade_no'],
+            'status' => 0
+        ])->update([
+            'status' => 1,
+            'transaction_id' => $post_data['transaction_id'],
             'paytime' => time(),
         ]);
         $this->return_success();

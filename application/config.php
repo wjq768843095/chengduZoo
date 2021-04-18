@@ -297,3 +297,4 @@ return [
         'api_url'               => 'https://api.fastadmin.net',
     ],
 ];
+

@@ -3472,7 +3472,8 @@ scroll-view.cu-steps .cu-item {
 }
 
 .line-orange,.lines-orange,.text-orange {
-    color: var(--orange);
+    /* color: var(--orange); */
+    color: #064a8c;
 }
 
 .line-yellow,.lines-yellow,.text-yellow {

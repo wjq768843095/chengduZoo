@@ -33,7 +33,7 @@ class Index extends Api
         ]);
         die;
     }
-    protected function errorJson($data = [], $sign = '', $errorCode = 201, $status = 'fail', $errorMsg = '')
+    protected function errorJson($errorMsg = '', $sign = '', $errorCode = 201, $status = 'fail', $data = [])
     {
         echo json_encode([
             'data' => $data,
@@ -42,7 +42,39 @@ class Index extends Api
             'status' => $status,
             'errorMsg' => $errorMsg,
         ]);
+
         die;
+    }
+    public function test()
+    {
+    }
+
+    public function getIdCard(){
+        // https://lvyou.loveu.life/index.php/api/index/getIdCard
+        $params = (file_get_contents('php://input'));
+        file_put_contents(ROOT_PATH.'555.txt',$params);
+        // if(!isset($params['spotNo']) || !$params['spotNo']) $this->error('spotNo参数错误');
+        // $products = Db::name('app_goods')->order('id desc')->select();
+        // $data = [];
+        // foreach($products as $product){
+        //     $data[] = [
+        //         "bgColor" => "",
+        //         "englishName" => $product['name_en'],
+        //         "imgUrl" => systemGetRequestHost().$product['thumb_image'],
+        //         "num" => 0,
+        //         "payPrice" => $product['price'],
+        //         "productApply" => $product['productApply'],
+        //         "productApplyEn" => $product['productApplyEn'],
+        //         "productName" => $product['name'],
+        //         "productNo" => $product['id'],
+        //         "productNotice" => $product['prompt'],
+        //         "productNoticeEn" => $product['prompt_en'],
+        //         "admissionTime" => $product['admissionTime'],
+        //         "admissionTimeEn" => $product['admissionTimeEn'],
+        //         "whetherUserId" => "0"
+        //     ];
+        // }
+        $this->successJson([]);
     }
     public function advertisementListText(){
         $notice = Db::name('config')->where('name','app_notice')->value('value');
@@ -62,6 +94,7 @@ class Index extends Api
                 "title" => ""
             ]
         ];
+
         $this->successJson($data);
 
     }
@@ -268,7 +301,8 @@ class Index extends Api
         }
         $data['openid'] = $res['openid'];
         $data['session_key'] = $res['session_key'];
-        $this->successJson(['openid' => $data['openid']]);
+        $intro = Db::name('config')->where('name','intro')->value('value');
+        $this->successJson(['openid' => $data['openid'],'intro' => $intro]);
     }
     public function getUserInfo(){
         $params = json_decode(file_get_contents('php://input'),true);
@@ -337,7 +371,7 @@ class Index extends Api
             if($order['status'] == 1) $refundStatus = '002777';
             $data[] = [
                 'openId' => $order['open_id'],
-                'orderNo' => $order['order_sn'],
+                'orderNo' => $order['order_sn_child'],
                 'orderStatus' => $orderStatus,
                 'orders' => [
                     [
@@ -445,13 +479,34 @@ class Index extends Api
         $this->successJson($data);
     }
     public function refundOrder(){
-        exit('{
-	"data": "{}",
-	"sign": "8ce2bcfa4746a488ec4eca8f2ac4e985",
-	"errorCode": "",
-	"status": "success",
-	"errorMsg": ""
-}');
+        $params = json_decode(file_get_contents('php://input'),true);
+        if(!isset($params['openId']) || !$params['openId']) $this->error('openId参数错误');
+        if(!isset($params['orderNo']) || !$params['orderNo']) $this->error('orderNo参数错误');
+        $order = Db::name('app_order')->where('order_sn_child',$params['orderNo'])->order('id desc')->find();
+        if(!$order) $this->errorJson('订单已失效');
+        Vendor('wxpay.wxclientpay');
+        $prepay = new \Helper_wxclientpay(Env::get('small.appid'),Env::get('small.wxpay_mchid'),Env::get('small.wxpay_mchkey'),Env::get('small.secret'));
+        // $res = $prepay->refund($order['transaction_id'],$order['order_id'],date('YmdHis').rand(1000,9999),intval($order['price']*100),intval($order*100));
+        $res = $prepay->refund($order['transaction_id'],$order['order_sn'],date('YmdHis').rand(1000,9999),1,1);
+        if($res['code'] == 0){
+            Db::name('app_order')->where('order_sn_child',$params['orderNo'])->update([
+                'status' => 3,
+                'refundtime' => time()
+            ]);
+        }else{
+            $res = $prepay->refund($order['transaction_id'],$order['order_sn_child'],date('YmdHis').rand(1000,9999),1,1);
+            if($res['code'] == 0){
+                Db::name('app_order')->where('order_sn_child',$params['orderNo'])->update([
+                    'status' => 3,
+                    'refundtime' => time()
+                ]);
+            }else{
+                $this->errorJson($res['msg']);
+            }
+        }
+
+        // $res = $prepay->refund($app_order['transaction_id'],$order['order_id'],$order_refund_id,1,1);
+        $this->successJson([]);
     }
     public function getUserPhoneNum(){
         $params = json_decode(file_get_contents('php://input'),true);
@@ -501,7 +556,9 @@ class Index extends Api
             if($params['playTime'] == 'today') $playTime = time();
             else if($params['playTime'] == 'tomorrow') $playTime = time() + 3600*24;
             else if($params['playTime'] == 'aftertomorrow') $playTime = time() + 3600*24*2;
+            else if(!$params['playTime']) $playTime = time();
             else $playTime = strtotime($params['playTime']);
+
         }
         foreach($params['data'] as $info){
             $goods = Db::name('app_goods')->where('id',$info['productNo'])->find();
@@ -528,13 +585,22 @@ class Index extends Api
         }
         $this->successJson(['orderNo' => $order_sn]);
     }
+    public function intro(){
+        $notice = Db::name('config')->where('name','intro')->value('value');
+        $this->successJson($notice);
+    }
     public function wechatPay(){
         $params = json_decode(file_get_contents('php://input'),true);
         if(!isset($params['orderNo']) || !$params['orderNo']) $this->error('orderNo参数错误');
         if(!isset($params['openId']) || !$params['openId']) $this->error('openId参数错误');
         $orderList = Db::name('app_order')->where('order_sn',$params['orderNo'])->select();
-        if(count($orderList) <= 0) $this->error('订单不存在');
-        $total_fee = Db::name('app_order')->where('order_sn',$params['orderNo'])->sum('price');
+        if(count($orderList) <= 0){
+            $orderList = Db::name('app_order')->where('order_sn_child',$params['orderNo'])->select();
+            if(count($orderList) <= 0) $this->errorJson('订单不存在');
+            $total_fee = Db::name('app_order')->where('order_sn_child',$params['orderNo'])->sum('price');
+        }else{
+            $total_fee = Db::name('app_order')->where('order_sn',$params['orderNo'])->sum('price');
+        }
         $total_fee = intval($total_fee * 100);
         $total_fee = 1;
         $this->pay('orderpay',$total_fee,$params['openId'],$params['orderNo']);

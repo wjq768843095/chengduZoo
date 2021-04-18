@@ -14,6 +14,10 @@ Component({
         totalPrice: "0.00",
         dateCur: "0",
         starttime: "",
+
+      day1: "",
+      day2: "",
+      day3: "",
         tomorrowtime: "",
         afterTomorrow: "",
         threeDays: "",
@@ -33,7 +37,7 @@ Component({
         modalcontentEn: "",
         admissionTime: "",
         admissionTimeEn: "",
-        hasRealName: 0,
+        hasRealName: 1,
         hasAgree: !1,
         spotNo: "",
         customerId: "",
@@ -48,6 +52,14 @@ Component({
         this.getApliction(), this.setLanguage();
     },
     methods: {
+      getDateStr: function (AddDayCount){
+        var dd = new Date();
+        dd.setDate(dd.getDate() + AddDayCount);//获取AddDayCount天后的日期
+        var y = dd.getFullYear();
+        var m = dd.getMonth() + 1;//获取当前月份的日期
+        var d = dd.getDate();
+        return m + "月" + d+"日";
+      },
         timeDetermine: function(e) {
             var i = this, o = e, n = a.globalData.systemInfo;
             "" != e && null != e || (o = 30);
@@ -66,12 +78,6 @@ Component({
                 },
                 success: function(a) {
                     var e = l.fulldate + " 00:00", c = new Date(e), d = new Date(e.replace(/-/g, "/")), r = l.fulldate + " " + a.data.data.closeHours, u = new Date(r), h = new Date(r.replace(/-/g, "/"));
-                  console.log(e)
-                  console.log(c)
-                  console.log(d)
-                  console.log(r)
-                  console.log(u)
-                    console.log(h)
                     if ((c < s || d < s) && 1 == (s < u || s < h)) {
                         var m = t.GetDateStr(0), g = t.GetDateStr(1), p = t.GetDateStr(2), f = t.GetDateStr(3), w = new Date(m.fulldate), D = (w.setMonth(w.getMonth() + 3), 
                         t.GetDateStr(o + 1).iosFulldate), x = t.GetDateStr(o + 1).fulldate, T = "";
@@ -150,6 +156,13 @@ Component({
             });
         },
         onLaunch: function() {
+          console.log(11111)
+          this.setData({
+            day1: this.getDateStr(0),
+            day2: this.getDateStr(1),
+            day3: this.getDateStr(2),
+          })
+          console.log(this.getDateStr(-2))
             var t = this, e = a.globalData.baseurl + "listSimpleSpotProducts" + ("?applicationNo=" + a.globalData.applicationNo);
             wx.showLoading({
                 title: "加载中...",
