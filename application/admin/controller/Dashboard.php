@@ -31,8 +31,8 @@ class Dashboard extends Backend
         $column = [];
         $starttime = Date::unixtime('day', -6);
         $endtime = Date::unixtime('day', 0, 'end');
-        $joinlist = Db("user")->where('jointime', 'between time', [$starttime, $endtime])
-            ->field('jointime, status, COUNT(*) AS nums, DATE_FORMAT(FROM_UNIXTIME(jointime), "%Y-%m-%d") AS join_date')
+        $joinlist = Db("app_order")->where('createtime', 'between time', [$starttime, $endtime])
+            ->field('createtime, status, COUNT(*) AS nums, DATE_FORMAT(FROM_UNIXTIME(createtime), "%Y-%m-%d") AS join_date')
             ->group('join_date')
             ->select();
         for ($time = $starttime; $time <= $endtime;) {
@@ -46,10 +46,10 @@ class Dashboard extends Backend
 
         $dbTableList = Db::query("SHOW TABLE STATUS");
         $this->view->assign([
-            'totaluser'       => User::count(),
-            'totaladdon'      => count(get_addon_list()),
+            'totaluser'       => Db::name('app_idcard')->group('code')->order('code desc')->count(),
+            'totaladdon'      => Db::name('app_order')->count(),
             'totaladmin'      => Admin::count(),
-            'totalcategory'   => \app\common\model\Category::count(),
+            'totalcategory'   => Db::name('app_goods')->count(),
             'todayusersignup' => User::whereTime('jointime', 'today')->count(),
             'todayuserlogin'  => User::whereTime('logintime', 'today')->count(),
             'sevendau'        => User::whereTime('jointime|logintime|prevtime', '-7 days')->count(),

@@ -23,7 +23,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                     trigger: 'axis'
                 },
                 legend: {
-                    data: [__('Register user')]
+                    data: [__('订单数量')]
                 },
                 toolbox: {
                     show: false,
@@ -45,7 +45,7 @@ define(['jquery', 'bootstrap', 'backend', 'addtabs', 'table', 'echarts', 'echart
                     bottom: 30
                 }],
                 series: [{
-                    name: __('Register user'),
+                    name: __('订单数量'),
                     type: 'line',
                     smooth: true,
                     areaStyle: {

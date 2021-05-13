@@ -185,7 +185,7 @@
                             <span class="sm-st-icon st-violet"><i class="fa fa-magic"></i></span>
                             <div class="sm-st-info">
                                 <span>{$totaladdon}</span>
-                                {:__('Total addon')}
+                                总订单数
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                             <span class="sm-st-icon st-blue"><i class="fa fa-leaf"></i></span>
                             <div class="sm-st-info">
                                 <span>{$totalcategory}</span>
-                                {:__('Total category')}
+                                总商品数
                             </div>
                         </div>
                     </div>
@@ -210,77 +210,77 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <div id="echart" class="btn-refresh" style="height:200px;width:100%;"></div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="card sameheight-item stats">
-                            <div class="card-block">
-                                <div class="row row-sm stats-container">
-                                    <div class="col-xs-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-rocket"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$todayusersignup}</div>
-                                            <div class="name"> {:__('Today user signup')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 30%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-vcard"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$todayuserlogin}</div>
-                                            <div class="name"> {:__('Today user login')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-calendar"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$threednu}</div>
-                                            <div class="name"> {:__('Three dnu')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 stat-col">
-                                        <div class="stat-icon"><i class="fa fa-calendar-plus-o"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$sevendnu}</div>
-                                            <div class="name"> {:__('Seven dnu')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-user-circle"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$sevendau}</div>
-                                            <div class="name"> {:__('Seven dau')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6  stat-col">
-                                        <div class="stat-icon"><i class="fa fa-user-circle-o"></i></div>
-                                        <div class="stat">
-                                            <div class="value"> {$thirtydau}</div>
-                                            <div class="name"> {:__('Thirty dau')}</div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="col-lg-4">-->
+<!--                        <div class="card sameheight-item stats">-->
+<!--                            <div class="card-block">-->
+<!--                                <div class="row row-sm stats-container">-->
+<!--                                    <div class="col-xs-6 stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-rocket"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$todayusersignup}</div>-->
+<!--                                            <div class="name"> {:__('Today user signup')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 30%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xs-6 stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-vcard"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$todayuserlogin}</div>-->
+<!--                                            <div class="name"> {:__('Today user login')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xs-6  stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-calendar"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$threednu}</div>-->
+<!--                                            <div class="name"> {:__('Three dnu')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xs-6 stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-calendar-plus-o"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$sevendnu}</div>-->
+<!--                                            <div class="name"> {:__('Seven dnu')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xs-6  stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-user-circle"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$sevendau}</div>-->
+<!--                                            <div class="name"> {:__('Seven dau')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="col-xs-6  stat-col">-->
+<!--                                        <div class="stat-icon"><i class="fa fa-user-circle-o"></i></div>-->
+<!--                                        <div class="stat">-->
+<!--                                            <div class="value"> {$thirtydau}</div>-->
+<!--                                            <div class="name"> {:__('Thirty dau')}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="progress">-->
+<!--                                            <div class="progress-bar progress-bar-success" style="width: 25%"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
 
                 <div class="row" style="margin-top:15px;" id="statistics">
@@ -291,15 +291,15 @@
                         <div class="panel bg-blue-gradient no-border">
                             <div class="panel-body">
                                 <div class="panel-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
-                                    <h5>{:__('Category count')}</h5>
+<!--                                    <span class="label label-primary pull-right">{:__('Real time')}</span>-->
+                                    <h5>订单统计</h5>
                                 </div>
                                 <div class="panel-content">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <h1 class="no-margins">{$totalcategory}</h1>
+                                            <h1 class="no-margins">{$totaladdon}</h1>
                                             <div class="font-bold"><i class="fa fa-magic"></i>
-                                                <small>{:__('Category count tips')}</small>
+                                                <small>当前总订单数</small>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@
                         <div class="panel bg-aqua-gradient no-border">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+<!--                                    <span class="label label-primary pull-right">{:__('Real time')}</span>-->
                                     <h5>{:__('Database count')}</h5>
                                 </div>
                                 <div class="ibox-content">
@@ -338,7 +338,7 @@
                         <div class="panel bg-purple-gradient no-border">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+<!--                                    <span class="label label-primary pull-right">{:__('Real time')}</span>-->
                                     <h5>{:__('Attachment count')}</h5>
                                 </div>
                                 <div class="ibox-content">
@@ -365,7 +365,7 @@
                         <div class="panel bg-green-gradient no-border">
                             <div class="panel-body">
                                 <div class="ibox-title">
-                                    <span class="label label-primary pull-right">{:__('Real time')}</span>
+<!--                                    <span class="label label-primary pull-right">{:__('Real time')}</span>-->
                                     <h5>{:__('Picture count')}</h5>
                                 </div>
                                 <div class="ibox-content">
